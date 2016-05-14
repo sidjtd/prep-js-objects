@@ -23,10 +23,10 @@ var plainBox = {};
  */
  var stockCar = {
     model: "ford",
-    year: 1999,
-    autotrans: true,
+    year: 2000,
+    automaticTransmission: true,
     driver: null,
-    passengers: [], 
+    passengers: []
  };
 /* Add new property inside a function
         Declare a variable named `plainPerson`. Set its value to be an empty object with no properties.
@@ -41,20 +41,20 @@ var plainBox = {};
 */
 var plainPerson = {};
 
-function buildPerson(person,nameString,ageX){
-    person.name = nameString;
-    person.age = ageX;
-    return person;
+function buildPerson(EMPTYOBJ,ONAM,AG){
+    EMPTYOBJ.name = ONAM;
+    EMPTYOBJ.age = AG;
+    return EMPTYOBJ;
 }
 
 var completePerson = buildPerson(plainPerson,"Bob",99);
+//console.log(plainPerson.age);
 
-/*
-    # Display values of objects that are inside an array
-        Declare a new variable named `arrayOfObjects` and set it to be [this array of objects](https://gist.github.com/sgnl/958adf99007329d2e4ff).
-
-        Declare a new function named `printProcessedOrders`and set one parameter called `orders`. Within this function you will return a string that prints the order details to the page in the following format.
-
+/* # Display values of objects that are inside an array
+Declare a new variable named `arrayOfObjects` and set it to be 
+[this array of objects](https://gist.github.com/sgnl/958adf99007329d2e4ff).
+Declare a new function named `printProcessedOrders`and set one parameter called `orders`. 
+Within this function you will return a string that prints the order details to the page in the following format.
         Example output:
             =====
             id:  0
@@ -69,9 +69,85 @@ var completePerson = buildPerson(plainPerson,"Bob",99);
             purchase date:  Monday Feb 1 2015 7:56 AM
             purchase total:  15.62
             =====
-            ...
- */
+            ...*/
+var arrayOfObjects = [
+  {
+    id: 0,
+    date: "Monday Jan 25 2015 2:01 PM",
+    total: "279.38"
+  },
+  {
+    id: 1,
+    date: "Monday Jan 27 2015 11:31 AM",
+    total: "79.80"
+  },
+  {
+    id: 2,
+    date: "Monday Feb 1 2015 7:56 AM",
+    total: "15.62"
+  },
+  {
+    id: 3,
+    date: "Monday Feb 1 2015 9:43 AM",
+    total: "19.83"
+  },
+  {
+    id: 4,
+    date: "Monday Feb 1 2015 11:08 PM",
+    total: "56.69"
+  },
+  {
+    id: 5,
+    date: "Monday Feb 13 2015 10:22 AM",
+    total: "137.92"
+  },
+  {
+    id: 6,
+    date: "Monday Feb 14 2015 6:54 PM",
+    total: "938.65"
+  },
+  {
+    id: 7,
+    date: "Monday Feb 14 2015 7:17 PM",
+    total: "43.77"
+  },
+  {
+    id: 8,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "28.54"
+  },
+  {
+    id: 9,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "194.33"
+  } ];
+  
+var arrayOfObjects = [{}];
 
+function printProcessedOrders(orders){
+    for (var i=0; i<orders.length; i++){
+    return "====";
+}
+}
+
+printProcessedOrders(arrayOfObjects);
+
+/*
+Example output:
+            =====
+            id:  0
+            purchase date:  Monday Jan 25 2015 2:01 PM
+            purchase total:  279.38
+            =====
+            id:  1
+            purchase date:  Monday Jan 27 2015 11:31 AM
+            purchase total:  79.80
+            =====
+            id:  2
+            purchase date:  Monday Feb 1 2015 7:56 AM
+            purchase total:  15.62
+            =====
+            ...*/
 
 /*
     # Addition with an object
@@ -84,6 +160,19 @@ var completePerson = buildPerson(plainPerson,"Bob",99);
         Go ahead and create some more objects and pass them to this function. Have fun with it.
 */
 
+var sumObj = {
+    ax:10,
+    bx:5,
+    result:undefined,
+};
+
+function objectAddition(object){
+    sumObj.result = sumObj.ax+sumObj.bx;
+    return object;
+}
+
+var sumObjResult = objectAddition(sumObj);
+//console.log(sumObj.result);
 
 /*
     # Print sum function and add as new key-value
@@ -99,17 +188,34 @@ var completePerson = buildPerson(plainPerson,"Bob",99);
         Invoke this function and pass in your object. Further test by changing the values of the object being passed in or **create more** objects and invoke your function multiple times.
  */
 
+var holdit = "x";
 
-/*
-    # Putting stuff in `plainBox`
+function printObj(sumObj){
+    sumObj.output = sumObj.ax + "+" + sumObj.bx + "= Result: " + sumObj.result;
+}
+
+printObj(sumObj);
+//console.log(holdit);
+//console.log(sumObj.output);
+
+/* # Putting stuff in `plainBox`
         Declare a function named putInPlainBox and a single parameter which will be an object. Within this function, write a FOR loop that adds **10** random number values to the array referenced at the `contents` property of the object being passed in. This function will return the object.
 
-        Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named plainBoxResult and use `console.log` to inspect your results.
- */
+        Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named plainBoxResult and use `console.log` to inspect your results. */
 
+sadarray = [];
 
-/*
-    # Detecting transmission
+function putinPlainBox(object){
+    for (var i =0; i<10; i++){
+        object.push((Math.round() * 100) + 1);
+
+    }
+}
+
+console.log(putinPlainBox(sadarray));
+console.log(sadarray);
+
+/* # Detecting transmission
         Declare a function named detectingTranmission and a single parameter which will be an object. Within this function you will check to see if the car has an automatic or manual transmission and print the results on screen.
 
         If `automaticTransmission` is true then print a message saying so. Also, provide an appropriate message for when the its false.
@@ -117,6 +223,16 @@ var completePerson = buildPerson(plainPerson,"Bob",99);
         Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
 
+function detectingTranmission(object){
+    if (object.automaticTransmission===true){
+        return "It's true~";
+    }else{
+        return "It's false";
+    }
+}
+
+var isAutomaticTransmission = detectingTranmission(stockCar);
+console.log(isAutomaticTransmission);
 
 /*
     # Who's driving this thing?!
@@ -124,9 +240,11 @@ var completePerson = buildPerson(plainPerson,"Bob",99);
 
         Declare a function named addDriver with two parameters. The first parameter will be an object with represents a **car**, the other will be a **person**. Within this function, set the `driver` value of the **stockCar** to the second parameter being passed into your function.
 
-        Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect your results. Consider using `plainPerson` as your driver.
- */
+        Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect your results. Consider using `plainPerson` as your driver. */
 
+function addDriver(){
+
+}
 
 /*
     # Final Boss
